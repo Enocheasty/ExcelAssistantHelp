@@ -16,7 +16,15 @@
         <p><strong>分组依据</strong>选择一个列作为分组依据，选择一个统计值，统计值暂只支持平均值、中位值、和、标准差四类。偏差为每组统计值相差的范围。</p>
         <p>程序分组的原理为：将数据排序，并分配到每组内，然后挑拣统计值相差最大的两组进行数值交换，直至交换后的统计值差值小于交换前，则完成一次迭代，并检查是否满足偏差要求。如不满足，则继续迭代，直至设定的迭代次数上限。</p>
         <p><strong>均衡分组示例：</strong></p>
-        <img alt="" src="images/BalanceGroup.gif">
+        
+        <div class="modal" id="myModal">
+            <span class="close" onclick="document.getElementById('myModal').style.display='none'">&times;</span>
+            <img class="modal-content" id="image01">
+            <div id="caption"></div>
+        </div>
+        <script src="PicturePreview.js"></script>
+        
+        <img id="img_BalanceGroup" alt="均衡分组示例" src="images/BalanceGroup.gif" class="zoomImg" onclick="imagePreview('img_BalanceGroup')">
         <div class="remark">
             <p><strong>使用均衡分组功能需注意如下事项：</strong></p>
             <ul>

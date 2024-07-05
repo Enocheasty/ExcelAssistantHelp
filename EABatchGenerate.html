@@ -35,7 +35,15 @@
         <p>本程序可以识别的参数在模板中必须以“_[参数名]”的样式设置，此设计是为避免参数名格式与用户需求冲突。 同时不可避免造成参数输入繁琐，为此，本程序提供了快捷的参数列表创建（参见<a href="EADataInput.html#ParameterInput">辅助输入</a>功能），点击输入功能区下拉列表按钮，点击参数列表后，选择数据表标题行，则可以自动为选定的单元格创建一个符合参数名称样式的下拉列表，以便选择。参数名称如包含逗号，则不能通过此功能添加至选择列表中，需手动输入。</p>
         <p>参数名称必须与数据源标题中的参数名称一致，但顺序不必一致，模板中不必包含数据源中所有参数，如模板中的参数在数据源中未能找到匹配，则程序输出为空。</p>
         <p><strong>批量制作示例：</strong></p>
-        <img alt="" src="images/BatchGenerate.gif">
+        
+        <div class="modal" id="myModal">
+            <span class="close" onclick="document.getElementById('myModal').style.display='none'">&times;</span>
+            <img class="modal-content" id="image01">
+            <div id="caption"></div>
+        </div>
+        <script src="PicturePreview.js"></script>
+        
+        <img id="img_BatchGenerate" alt="批量制作示例" src="images/BatchGenerate.gif" class="zoomImg" onclick="imagePreview('img_BatchGenerate')">
         <div class="remark">
             <p><strong>使用批量制作功能需注意如下事项：</strong></p>
             <ul>

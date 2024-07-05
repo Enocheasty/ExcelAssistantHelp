@@ -32,11 +32,19 @@
         <p><strong>保存设置</strong>将横道图设置界面中的设置保存到当前工作表中。即使关闭工作簿或者Excel程序，下次打开时设置依然存在。</p>
         <p><strong>创建时间轴示例：</strong></p>
         <p>下面示例中，其一展示基于现有项目的时间计划创建时间轴，另一示例展示基于手动输入时间创建一个时间从2024年6月至2027年6月，以10天为精度，创建一个时间轴。</p>
-        <img alt="" src="images/CreateTimeLineAuto.gif">
-        <img alt="" src="images/CreateTimeLineManual.gif">
+        
+        <div class="modal" id="myModal">
+            <span class="close" onclick="document.getElementById('myModal').style.display='none'">&times;</span>
+            <img class="modal-content" id="image01">
+            <div id="caption"></div>
+        </div>
+        <script src="PicturePreview.js"></script>
+        
+        <img id="img_CreateTimeLineAuto" alt="自动读取时间创建时间轴" src="images/CreateTimeLineAuto.gif" class="zoomImg" onclick="imagePreview('img_CreateTimeLineAuto')">
+        <img id="img_CreateTimeLineManual" alt="手动设置时间创建时间轴" src="images/CreateTimeLineManual.gif" class="zoomImg" onclick="imagePreview('img_CreateTimeLineManual')">
         <p><strong>绘制横道图示例：</strong></p>
         <p>下面示例中，展示基于输入的项目，更新条形图以及，修改项目时间后，条形图自动更新。</p>
-        <img alt="" src="images/CreateGanttChart.gif">
+        <img id="img_CreateGanttChart" alt="绘制横道图及自动更新" src="images/CreateGanttChart.gif" class="zoomImg" onclick="imagePreview('img_CreateGanttChart')">
         <div class="remark">
             <p><strong>使用横道图工具需注意如下事项：</strong></p>
             <ul>
@@ -54,7 +62,7 @@
         <p>该功能的主要目的为快速的为大批的文件创建一个Excel目录清单。可以自定义文件类型，定义多个文件类型时，以分号隔开。</p>
         <p><strong>设置说明</strong>，仅读取文件名时，将忽略文件夹名称；缩进样式指按照文件目录层级，在Excel填充数据时，同样通过列号后移的方式，展现出文件层次；忽略隐藏/系统文件时，仅指文件，不包括文件夹；填充制表线在缩进样式时，可在缩进的单元格内填充制表线符号；添加结点为以指定的模式给文件夹或者文件名前添加一个标志性的符号；创建超链接时，通过点击该链接可以打开该文件（如果可以双击打开的情况下）；顺序选项指示程序先读入文件夹还是先读入文件。</p>
         <p><strong>创建文件目录树示例：</strong></p>
-        <img alt="" src="images/CreateFileTree.gif">
+        <img id="img_CreateFileTree" alt="创建文件目录树示例" src="images/CreateFileTree.gif" class="zoomImg" onclick="imagePreview('img_CreateFileTree')">
         
         <br>
         <a href="index.html">返回主页</a>

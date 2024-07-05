@@ -28,16 +28,24 @@
         <p>通过工作表列表框的右键菜单可以选择添加、删除文件以及进行相关选择操作，只有被选定的工作表将进行拼接操作。</p>
         <p>输出方式可以选择拼接到当前工作表，或者在当前工作簿新建工作簿，也可以新建一个工作簿。 当选择拼接到当前工作表时，是否在工作表列表中选择该列表并不重要，即使选择也会自动忽略；如选择其他选项，则与当前工作表无关，如当前工作表属于被拼接对象，则需要在列表中勾选该工作表。</p>
         <p>选择拼接到当前工作表选项时，拼接起始列数与选择的列数相同，而新建工作表或工作簿时，拼接的起始列数为1。即选择拼接数据范围为C~D列，如果拼接到当前工作表，则数据仍在C~D列范围内拼接，如果新建工作表或工作簿，则数据拼接在A~B列，保证新表中不会出现空白列。</p>
+        
+        <div class="modal" id="myModal">
+            <span class="close" onclick="document.getElementById('myModal').style.display='none'">&times;</span>
+            <img class="modal-content" id="image01">
+            <div id="caption"></div>
+        </div>
+        <script src="PicturePreview.js"></script>
+        
         <p><strong>通过固定行数拆分表格示例：</strong></p>
-        <img alt="" src="images/TableSplitFixlines.gif">
+        <img id="img_TableSplitFixLine" alt="通过固定行数拆分表格示例" src="images/TableSplitFixlines.gif" class="zoomImg" onclick="imagePreview('img_TableSplitFixLine')">
         <p><strong>通过空白行拆分表格示例：</strong></p>
-        <img alt="" src="images/TableSplitByBlankLine.gif">
+        <img id="img_TableSplitByBlank" alt="通过空白行拆分表格示例" src="images/TableSplitByBlankLine.gif" class="zoomImg" onclick="imagePreview('img_TableSplitByBlank')">
         <p><strong>通过条件拆分表格示例：</strong></p>
-        <img alt="" src="images/TableSplitByCondition.gif">
+        <img id="img_TableSplitByCondition" alt="通过条件拆分表格示例" src="images/TableSplitByCondition.gif" class="zoomImg" onclick="imagePreview('img_TableSplitByCondition')">
         <p><strong>多个工作表拼接同一个工作表示例：</strong></p>
-        <img alt="" src="images/TableMerge1.gif">
+        <img id="img_TableMerge01" alt="多个工作表拼接同一个工作表示例" src="images/TableMerge1.gif" class="zoomImg" onclick="imagePreview('img_TableMerge01')">
         <p><strong>多个文件内的表拼接到同一个工作表示例：</strong></p>
-        <img alt="" src="images/TableMerge2.gif">
+        <img id="img_TableMerge02" alt="多个文件内的表拼接到同一个工作表示例" src="images/TableMerge2.gif" class="zoomImg" onclick="imagePreview('img_TableMerge02')">
         <div class="remark">
             <p><strong>使用表格拆分与拼接功能需注意如下事项：</strong></p>
             <ul>

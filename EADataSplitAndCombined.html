@@ -24,10 +24,18 @@
         <p><strong>连接符</strong>可以为空，可以为多个字符，或者使用“|”字符来指定多个连接符。指定多个连接符的规则为，以|隔开，数据的第1、2列使用第1个连接符，2、3列使用第2个连接符，依此类推；当指定的连接符数少于数据列数-1时，将使用最后一个连接符补足；当指定的连接符多余时，将被忽略；多个连接符的使用相对固定，即当某行数据仅第2，3列有数据，连接数据的仍为第2个连接符。当需要使用“|”符号作为连接符时，需输入“||”代替，同理，需要“||”作为连接符则以“||||”代替。当以“XXX|”作为连接符输入时，程序不会忽略空字符，即上述输入代表2个连接符，分别为“XXX”与空。</p>
         <p>目标位置与数据分列功能的意义相同。</p>
         <p>虽然需要选择多列数据执行组合操作，但并非每一行数据都需要多个数据。在每一行的执行中，数据从左向右执行组合，如单行只有一个数据则直接输出，如遇到空值，将忽略空值。</p>
+        
+        <div class="modal" id="myModal">
+            <span class="close" onclick="document.getElementById('myModal').style.display='none'">&times;</span>
+            <img class="modal-content" id="image01">
+            <div id="caption"></div>
+        </div>
+        <script src="PicturePreview.js"></script>
+        
         <p><strong>数据分列功能示例：</strong></p>
-        <img alt="" src="images/DataSplit.gif">
+        <img id="img_DataSplit" alt="数据分列功能示例" src="images/DataSplit.gif" class="zoomImg" onclick="imagePreview('img_DataSplit')">
         <p><strong>数据组合功能示例：</strong></p>
-        <img alt="" src="images/DataCombined.gif">
+        <img  id="img_DataCombined" alt="数据组合功能示例" src="images/DataCombined.gif" class="zoomImg" onclick="imagePreview('img_DataCombined')">
         <div class="remark">
             <p><strong>使用数据分列与组合功能需注意如下事项：</strong></p>
             <ul>

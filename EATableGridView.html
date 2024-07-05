@@ -31,7 +31,15 @@
             </ul>
         </div>
         <p><strong>设置表格边框以及调整表格尺寸示例：</strong></p>
-        <img alt="" src="images/SetTableView.gif" />
+        
+        <div class="modal" id="myModal">
+            <span class="close" onclick="document.getElementById('myModal').style.display='none'">&times;</span>
+            <img class="modal-content" id="image01">
+            <div id="caption"></div>
+        </div>
+        <script src="PicturePreview.js"></script>
+        
+        <img id="img_SetTableView" alt="设置表格边框以及调整表格尺寸示例" src="images/SetTableView.gif" class="zoomImg" onclick="imagePreview('img_SetTableView')">
         <br>
         <a href="index.html">返回主页</a>
     </body>

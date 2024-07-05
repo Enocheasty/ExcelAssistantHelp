@@ -6,6 +6,7 @@
         <title>Excel助手使用说明</title>
         <meta name="description" content="An interactive getting started guide for Brackets.">
         <link rel="stylesheet" href="main.css">
+        <script src="PicturePreview.js"></script>
     </head>
     <body>
         <h1>Excel助手使用说明</h1>
@@ -13,7 +14,14 @@
         <p>
             本程序安装后，可在Excel Ribbon菜单中找到<strong>Excel助手</strong>选项卡，包含了本程序所有功能。
         </p>
-        <img alt="" src="images/00001.png"/>
+        <div class="modal" id="myModal">
+            <span class="close" onclick="document.getElementById('myModal').style.display='none'">&times;</span>
+            <img class="modal-content" id="image01">
+            <div id="caption"></div>
+        </div>
+
+        
+        <img id="ExcelAssistantRibbon" alt="Excel助手Ribbon菜单" src="images/00001.png" class="zoomImg" onclick="imagePreview('ExcelAssistantRibbon')">
         <p>本程序适用于MicroSoft Excel 2013及之后版本（需.Net Framework 4.7支持）。屏幕分辨率推荐1920x1080以上，否则可能存在程序界面遮挡的情况。
         </p>
         <p>本程序包括工作表批处理；单元格外观；辅助输入；格式设置；数据筛选、分列、组合；文件拆分、拼接；批量制作；数据均衡分组；聚光灯以及特殊功能的工具箱等功能，详见后续说明介绍。</p>

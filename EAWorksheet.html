@@ -30,8 +30,16 @@
                 <li>重命名界面调出时将停止Excel与用户的互交，直至用户退出该界面。</li>
             </ul>
         </div>
+        
+        <div class="modal" id="myModal">
+            <span class="close" onclick="document.getElementById('myModal').style.display='none'">&times;</span>
+            <img class="modal-content" id="image01">
+            <div id="caption"></div>
+        </div>
+        <script src="PicturePreview.js"></script>
+        
         <p><strong>工作表重命名示例：</strong></p>
-        <img alt="" src="images/WorksheetRename.gif" />
+        <img id="img_WorksheetRename" alt="工作表重命名示例" src="images/WorksheetRename.gif" class="zoomImg" onclick="imagePreview('img_WorksheetRename')" />
         <hr>
         <h4 id="CreateWorkSheetContents">创建工作表目录</h4>
         <p>为本工作簿中所有的工作表（包括隐藏的，但无法通过超链接转到隐藏的工作表）创建一个可链接的目录，存放在本工作簿中一个名为工作表目录的工作表。同时在单元格右键菜单中将创建一个返回目录的选项，通过此选项可返回工作表目录（如存在）。</p>
@@ -44,7 +52,7 @@
             </ul>
         </div>
         <p><strong>创建工作表目录示例：</strong></p>
-        <img alt="" src="images/WorksheetContents.gif" />
+        <img id="img_WorksheetContents" alt="创建工作表目录示例" src="images/WorksheetContents.gif" class="zoomImg" onclick="imagePreview('img_WorksheetContents')" />
         <hr>
         <h4 id="WorkSheetSplitAndMerge">工作表拆分与合并</h4>
         <p>将选定的工作表（不包括括隐藏的）拆分为单个工作簿，或者合并为一个工作簿。单击工作表操作区域Ribbon按钮<strong>拆分与合并</strong>即可打开如下界面：</p>
@@ -54,7 +62,7 @@
         <p>操作类型分为拆分与合并两种，当选择拆分时，所有选中的工作表，均将另存为单独的一个工作簿（Excel文件），当选择合并时，所有选中的工作表（无论是否在一个工作簿中）均将合并到一个工作簿（Excel）内。</p>
         <p>文件路径为拆分的文件或者合并的文件存放的位置，必须指定才能执行。</p>
         <p><strong>工作表拆分与合并示例：</strong></p>
-        <img alt="" src="images/WorksheetSaveAs.gif" />
+        <img id="img_WorksheetSaveAs" alt="工作表拆分与合并示例" src="images/WorksheetSaveAs.gif" class="zoomImg" onclick="imagePreview('img_WorksheetSaveAs')" />
         <br>
         <a href="index.html">返回主页</a>
     </body>

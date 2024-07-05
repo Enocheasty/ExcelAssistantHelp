@@ -13,8 +13,16 @@
         <img alt="" src="images/09001.png">
         <h4>聚光灯模式</h4>
         <p>方便在大量数据的情况下，高亮显示选中区域，或行、列的阅读模式。其下为高亮区域的模式选择以及高亮颜色选择，包括行、列、行和列以及单元格4中模式。在聚光灯开启的状态下，可以实时调整高亮区域和高亮颜色。</p>
+        
+        <div class="modal" id="myModal">
+            <span class="close" onclick="document.getElementById('myModal').style.display='none'">&times;</span>
+            <img class="modal-content" id="image01">
+            <div id="caption"></div>
+        </div>
+        <script src="PicturePreview.js"></script>
+        
         <p><strong>聚光灯模式示例：</strong></p>
-        <img alt="" src="images/HighLightView.gif">
+        <img id="img_HighLightView" alt="聚光灯模式示例" src="images/HighLightView.gif" class="zoomImg" onclick="imagePreview('img_HighLightView')">
         <div class="remark">
             <p><strong>注意：</strong>聚光灯功能会在同时开启的工作簿，工作表之间自动切换，但当任何工作表点击关闭时（即使点击关闭后又取消关闭流程），聚光灯都将关闭，需再次开启。</p>
         </div>
