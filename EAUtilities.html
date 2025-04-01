@@ -63,7 +63,19 @@
         <p><strong>设置说明</strong>，仅读取文件名时，将忽略文件夹名称；缩进样式指按照文件目录层级，在Excel填充数据时，同样通过列号后移的方式，展现出文件层次；忽略隐藏/系统文件时，仅指文件，不包括文件夹；填充制表线在缩进样式时，可在缩进的单元格内填充制表线符号；添加结点为以指定的模式给文件夹或者文件名前添加一个标志性的符号；创建超链接时，通过点击该链接可以打开该文件（如果可以双击打开的情况下）；顺序选项指示程序先读入文件夹还是先读入文件。</p>
         <p><strong>创建文件目录树示例：</strong></p>
         <img id="img_CreateFileTree" alt="创建文件目录树示例" src="images/CreateFileTree.gif" class="zoomImg" onclick="imagePreview('img_CreateFileTree')">
-        
+
+        <h4 id="ExportPicture">导出图片</h4>
+        <img class="leftImg" alt="" src="images/11004.png">
+        <p class="leftPara">可以将选定的区域范围导出为PNG图片。输出范围可以为<strong>选择区域、工作表的使用范围以及设置过的打印区域</strong>。</p>
+        <p><strong>导出整个工作簿</strong>选项可以将当前工作簿的每一个工作表导出为一个PNG图片。当不选择时，导出PNG图片可以设置图片文件名称，否则选择导出的文件夹位置，图片名以工作表名命名。</p>
+        <br>
+        <div class="remark">
+            <p><strong>使用导出图片注意如下事项：</strong></p>
+            <ol>
+                <li>选择区域指当前选择的区域，如果选择导出整个工作簿的情况下，每个工作表都按此区域范围导出。但如果选择使用范围以及打印区域时，则不同的工作表可能有不同的输出范围。如果某个工作表的使用范围为0，或者未设置打印区域，则将忽略该工作表；</li>
+                <li>本程序可以输出不连续选择区域，不连续区域将按从上至下的顺序输出到一张PNG文件中。</li>
+            </ol>
+        </div>
         <br>
         <a href="index.html">返回主页</a>
     </body>
