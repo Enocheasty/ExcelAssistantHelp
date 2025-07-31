@@ -3,13 +3,13 @@
     <head>
         <meta charset="utf-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <title>Excel助手使用说明</title>
+        <title>Excel助手V1.3使用说明</title>
         <meta name="description" content="An interactive getting started guide for Brackets.">
         <link rel="stylesheet" href="main.css">
         <script src="PicturePreview.js"></script>
     </head>
     <body>
-        <h1>Excel助手使用说明</h1>
+        <h1>Excel助手V1.3使用说明</h1>
         <h2>功能概述及环境要求</h2>
         <p>
             本程序安装后，可在Excel Ribbon菜单中找到<strong>Excel助手</strong>选项卡，包含了本程序所有功能。
@@ -26,6 +26,37 @@
         <p>本程序包括工作表批处理；单元格外观；辅助输入；格式设置；数据筛选、分列、组合；文件拆分、拼接；批量制作；数据均衡分组；聚光灯以及特殊功能的工具箱等功能，详见后续说明介绍。</p>
         <p>数据操作是一项严谨仔细的工作，本程序涉及各种数据的选择或者输入操作，作者会尽量预设用户可能的操作，并进行预判输入是否正确，并给出提示，避免错误执行。但作者无法预判所有的用户行为，请您仔细阅读本说明后，严格按照说明要求输入数据，否则可能因未知的输入错误造成错误的执行结果。</p>
         <p>当您遇到本程序界面意外关闭的时候且Excel程序出现无法操作的情况，您可以通过重启Excel程序后恢复。</p>
+        <p>本程序开发环境为MS Excel2019版，VS2022，程序在1.3版时，取消了安装检查限制，也就是未安装Excel程序依然可以安装本插件，如需要在WPS中运行，需修改注册表相关参数。参考如下批处理代码：</p>
+        <!-- 带标题的代码块 -->
+        <div class="code-header">
+            <span>启用WPS插件.bat</span>
+            <button class="copy-btn">复制</button>
+                <pre><code class="language-cmd">
+@echo off
+chcp 65001 > nul
+setlocal enabledelayedexpansion
+
+REM 定义要查询和添加的插件名称
+set "excelPlugin=ExcelAssistant"
+
+REM 定义Office和WPS的注册表路径
+set "officeExcelAddins=HKCU\Software\Microsoft\Office\Excel\Addins"
+set "wpsExcelAddins=HKCU\Software\Kingsoft\Office\ET\AddinsWL"
+
+REM 检查并添加Excel插件
+reg query "%officeExcelAddins%\%excelPlugin%" >nul 2>&1
+if %errorlevel% equ 0 (
+    reg add "%wpsExcelAddins%" /v "%excelPlugin%" /t REG_SZ /d "%excelPlugin%" /f
+    echo 已添加Excel插件项：%excelPlugin%
+) else (
+    echo 未找到Excel插件：%excelPlugin%
+)
+
+echo.
+echo 操作完成！请重启WPS Office应用程序使更改生效。
+pause
+                </code></pre>
+        </div>
         <p class="remark">
             <strong>受限于Excel的支持，除部分功能可通过本程序提供的撤销按钮撤销上一次操作外，所有通过本程序执行的操作，不能通过Excel本身的撤销功能进行撤销，重要数据建议操作前做好备份。如因本程序造成您的文档数据丢失，作者表示歉意，但不承诺承担由此造成的损失！</strong>
         </p>
@@ -50,6 +81,52 @@
             <li><a href="EAOthers.html">聚光灯模式及加载项设置</a></li>
         </ul>
     </body>
-    
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+          const copyButtons = document.querySelectorAll('.copy-btn');
+          copyButtons.forEach(btn => {
+            btn.addEventListener('click', async function() {
+              console.log("复制按钮被点击");
+              // 更健壮的选择器
+              const codeContainer = this.nextElementSibling.querySelector('code') || 
+                                   this.nextElementSibling;
+
+              const code = codeContainer.innerText;
+              try {
+                // 现代API
+                if (navigator.clipboard && navigator.clipboard.writeText) {
+                  await navigator.clipboard.writeText(code);
+                } 
+                // 兼容方案
+                else {
+                  const textArea = document.createElement('textarea');
+                  textArea.value = code;
+                  textArea.style.position = 'fixed';
+                  textArea.style.opacity = '0';
+                  document.body.appendChild(textArea);
+                  textArea.select();
+
+                  const success = document.execCommand('copy');
+                  document.body.removeChild(textArea);
+                }
+
+                // 视觉反馈
+                const originalText = this.textContent;
+                this.textContent = '✓ 已复制';
+                this.style.background = '#2196F3';
+
+                setTimeout(() => {
+                  this.textContent = originalText;
+                  this.style.background = '#4CAF50';
+                }, 2000);
+              } catch (err) {
+                console.error('复制失败:', err);
+                this.textContent = '❌ 失败';
+                setTimeout(() => this.textContent = '复制', 2000);
+              }
+            });
+          });
+        });
+    </script>
     
 </html>
