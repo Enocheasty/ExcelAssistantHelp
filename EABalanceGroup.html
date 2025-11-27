@@ -3,13 +3,13 @@
     <head>
         <meta charset="utf-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <title>均衡分组-Excel助手使用说明</title>
+        <title>其他数据操作-Excel助手使用说明</title>
         <meta name="description" content="An interactive getting started guide for Brackets.">
         <link rel="stylesheet" href="main.css">
     </head>
     <body>
         <h2 id="BalanceGroup">均衡分组</h2>
-        <p>Excel助手Ribbon菜单中数据操作区域点击均衡分组按钮即可调出如下操作界面，该功能主要用于将数据，根据其中的某一字段的统计值进行均衡分组。 例如，将100个学生，按照成绩分为3组，并且要使每组的平均成绩大致相当。</p>
+        <p>Excel助手Ribbon菜单中数据操作区域点击其他操作-均衡分组可调出如下界面，该功能主要用于将数据，根据其中的某一字段的统计值进行均衡分组。 例如，将100个学生，按照成绩分为3组，并且要使每组的平均成绩大致相当。</p>
         <img class="leftImg" alt="" src="images/10001.png" />
         <p class="leftPara"><strong>数据区域</strong>指要用于分组的数据，选择数据时，不要包括标题行。</p>
         <p><strong>分组数</strong>即要将数据分成的组数，程序会自动将每组的数据均衡，如能等分，则等分；如不能，则任意两组数据数目相差1个。</p>
@@ -32,6 +32,34 @@
                 <li>偏差值的设置，需要考虑数据的特点，当设置的偏差值，经过很大的迭代次数及很长时间的计算，仍不能得出满足需求的分组，则可能数据根本就不存在满足条件的分组，应适当调大偏差值再尝试；</li>
                 <li>虽然提供了忽略偏差条件，继续迭代至设定的上限的选项，但即使迭代计算至最后，最终结果未必是满足条件的；</li>
                 <li>本程序在读入数据时，对数据敏感性很大，且会将非数值的数据当0读入，因此统计时会产生较大影响，使结果不可预料。因此应尽量保证数据的完整性。</li>
+            </ol>
+        </div>
+        
+        <h2 id="SubsetSumSolution">凑数求解</h2>
+        <p>Excel助手Ribbon菜单中数据操作区域点击其他操作-凑数求解可调出如下界面，该功能主要用于求子集和问题。 给定一个数组，求是否存在组合，使得组合的和等于目标值，即凑数问题。</p>
+        <img class="leftImg" alt="" src="images/10002.png" />
+        <p>上述界面中需要设定目标值，选择数据源区域，设定输出位置，之后可以点击开始凑数按钮，程序开始计算，并在程序界面反馈计算进度。当程序求得足够多的解以及觉得时间运行的足够长了，可以点击取消计算，程序会在适当的返回点结束计算。</p>
+        <p><strong>计算解总数限制</strong>：表示希望程序最多求解多少组解，当程序求得设定的解的数量时，即停止计算。如果设为-1表示运算至程序设定的解数量上限（内部设定200,000，避免运行时间过长或者内存使用太大）。</p>
+        <p><strong>允许重复选数</strong>：程序可以两种方式计算解，一种是不允许重复选择数据，程序在开始求解之初会去掉重复的值；另一种是允许重复的选择数据，此时同一数据会多次选择，只要能满足凑出目标数值。当重复选数模式下，如果求得解后，程序还会根据设定的重复次数筛选解，剔除不满足重复次数限制的解。0表示不限制重复次数。</p>
+        <p><strong>解包含数字限制</strong>：即子集的大小限制，如果设定，那么选择的数字不会超过设定值，0表示不限制子集数字个数。</p>
+        
+        <p><strong>凑数求解示例：</strong></p>
+        
+        <div class="modal" id="myModal">
+            <span class="close" onclick="document.getElementById('myModal').style.display='none'">&times;</span>
+            <img class="modal-content" id="image01">
+            <div id="caption"></div>
+        </div>
+        <script src="PicturePreview.js"></script>
+        
+        <img id="SubsetSumSolution" alt="凑数求解示例" src="images/SubsetSumSolution.gif" class="zoomImg" onclick="imagePreview('SubsetSumSolution')">
+        <div class="remark">
+            <p><strong>使用凑数求解功能需注意如下事项：</strong></p>
+            <ol>
+                <li>凑数求解基于DFS剪枝算法，即深度优先搜索算法，当数组的个数>30的时候，整个状态值达到2<sup>30</sup>的数量级，且每增加一个数字，状态都呈指数级别增长，因此想要遍历所有的结果已经变得不可行了，建议凑数的数组个数尽量少于30，或者考虑设定求解个数，或者限制解包含的个数来尽量减少算法的运行时间；</li>
+                <li>算法设置了内置的解上限，约为20万，避免长时间算法运行或者内存占用；</li>
+                <li>通过程序的取消计算按钮可以终止运算，因为计算是异步运行的，所以取消操作可能会延迟执行。因为程序会等待异步反馈取消信息，并不能及时反馈计算结束；</li>
+                <li>计算结束后，会将解以字符串的形式输出到给出的位置，但是最大解输出数量受工作表行容量限制。</li>
             </ol>
         </div>
         <br>
