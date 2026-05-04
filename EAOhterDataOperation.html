@@ -54,7 +54,7 @@
         </div>
         <script src="PicturePreview.js"></script>
         
-        <img id="SubsetSumSolution" alt="凑数求解示例" src="images/SubsetSumSolution.gif" class="zoomImg" onclick="imagePreview('SubsetSumSolution')">
+        <img id="img_SubsetSumSolution" alt="凑数求解示例" src="images/SubsetSumSolution.gif" class="zoomImg" onclick="imagePreview('img_SubsetSumSolution')">
         <div class="remark">
             <p><strong>使用凑数求解功能需注意如下事项：</strong></p>
             <ol>
@@ -64,6 +64,33 @@
                 <li>乱序选项可以让程序尝试不同的序列，以求解不同的解，大多数情况下都不是最优的方式，因此需要耗费更多的时间求解一组解；因此，此选项的目标是当默认的解总会选择看似固定的前面几项时，可以考虑采用乱序方式尝试新的解。</li>
                 <li>使用该功能尽量以实际需求引导，避免出现很小的数字与很大的目标值的组合，尤其在可以重复选择的情况下，解的规模将非常大，可能导致溢出错误。</li>
                 <li>计算结束后，会将解以字符串的形式输出到给出的位置，但是最大解输出数量受工作表行容量限制。</li>
+            </ol>
+        </div>
+        <h2 id="RectangularPacking">二维矩形排样</h2>
+        <p>二维矩形排样问题可以理解为，有一系列的矩形尺寸的货物，想要将不同的货物放入矩形货仓内，怎么放可以最大程度的利用货仓的面积。该问题很难得到最优的解，但是通过本程序，可以通过随机算法，得到较优化的排列以获得较高的利用率。排样算法的界面如下：</p>
+        <img alt="" src="images/10003.png" />
+        <p><strong>输入</strong>部分，需要输入容器（即货仓）的平面尺寸，通过<strong>添加物体信息</strong>按钮，可以添加一系列规格的货物的信息。每个物体可以输入4个字段，包括名称（字符）、描述（字符）、长度（数字）和宽度（数字）。名称和描述不是必须的，但是长度和宽度数据是必须，否则将忽略此行数据。因此添加物体信息时，可以选取2~4列的数据，当选取2列数据时对应录入为长度、宽度；当选取3列数据时，对应录入为名称、长度、宽度；当选取4列数据时，对应录入为名称、描述、长度、宽度。<strong>算法迭代次数</strong>为随机试算次数，默认为5000次，当物体数量较大时，每次迭代使用的时间将会越长，当然算法也会以当前方案占用率基本接近1停止。但是大多数情况下，占用率都不会等于1。算法运行的过程中会报告迭代次数以及当前已获得的最大占用率。</p>
+        <p><strong>方案结果</strong>会在算法结束后显示当前方案的情况，选取的物体数量、最大占用长度、宽度、最大占用率以及空置率。</p>
+        <p><strong>输出内容</strong>包含4个输出选项：1、当前方案主要结果；2、当前方案选中的物体序列：ID+位置；3、当前方案选中的物体序列：名称+位置；4、当前方案的排列图形。选择了输出内容后单击下方的<strong>输出</strong>按钮输出结果。上述前3项输出为文字内容，第4项为图形。</p>
+        <p>当输入完成后，单击<strong>求解</strong>按钮即可开始运行算法，算法运行过程中会弹出进度窗口报告迭代次数和最大占用率，如感觉运算时间过长，可单击进度窗口中的取消按钮停止运算，此时将以当前最大占用率输出结果。算法运行结束后，左侧的区域将可视化输出结果，其中每个被放置的物体显示的为ID编号，且会在物体列表中区别显示。</p>
+        <p><strong>二维矩形排样求解示例</strong></p>
+        <div class="modal" id="myModal">
+            <span class="close" onclick="document.getElementById('myModal').style.display='none'">&times;</span>
+            <img class="modal-content" id="image01">
+            <div id="caption"></div>
+        </div>
+        <script src="PicturePreview.js"></script>
+        
+        <img id="img_RectangularPacking" alt="二维矩形排样求解示例" src="images/RectangularPacking.gif" class="zoomImg" onclick="imagePreview('img_RectangularPacking')">
+        <div class="remark">
+            <p><strong>使用二维矩形排样功能需注意如下事项：</strong></p>
+            <ol>
+                <li>本质上本功能算法为随机选择，更大的迭代次数不一定能获得最好的解，但是更大的迭代次数获得最优解的概率会增大；</li>
+                <li>本算法的时间成本随着排样的矩形物体的数量增大而增大；</li>
+                <li>对于程序而言，每个物体会给予内部的ID编号，不等同于名称，用户需要注意区别，且该编号为程序内部控制，不受用户指定或者更改；</li>
+                <li>程序对于输入的每个物体都认定为独立的个体，即使物体的名称、描述以及尺寸完全相同；因此，如果需要安排多个相同的物体参与排样，可以重复输入相同的数据建立相同物体；</li>
+                <li>输出的坐标以容器的左下角为（0，0）原点；</li>
+                <li>算法运行完成后，输出结果之前，请勿更改输入内容，否则可能导致输出结果不正确。</li>
             </ol>
         </div>
         <br>
